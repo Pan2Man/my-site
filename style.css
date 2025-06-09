@@ -709,3 +709,40 @@ footer {
   transition: opacity 1s ease-in-out;
 }
 
+/* ===== スマホ対応（画面幅768px以下） ===== */
+@media screen and (max-width: 768px) {
+  .banner-grid {
+    grid-template-columns: 1fr; /* バナーを縦1列に */
+    gap: 1rem;
+  }
+
+  .tsuna-content-wrapper {
+    flex-direction: column; /* キャラ紹介を縦並びに */
+    text-align: center;
+  }
+
+  .tsuna-image, .tsuna-visual {
+    margin: 0 auto;
+  }
+
+  .news-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.9rem;
+  }
+
+  .news-list .date {
+    margin-bottom: 0.5rem;
+  }
+
+  .youtube-inner iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .visual-container img.logo-deco {
+    width: 80%;
+    max-width: 300px;
+  }
+}
