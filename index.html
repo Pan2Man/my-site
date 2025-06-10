@@ -250,15 +250,18 @@
   </footer>
 
   <!-- ✅ 右下メニューボタン -->
-  <div class="floating-menu-button" onclick="openMenu()">
+  <div class="floating-menu-button" onclick="fadeAndGoToMenu()">
     <img src="images/menu-witch.webp" alt="メニュー" />
   </div>
 
   <!-- ✅ スクリプト -->
   <script src="script.js"></script>
   <script>
-    function openMenu() {
-      alert("ここにメニュー表示処理を追加できます！");
+    function fadeAndGoToMenu() {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "menu.html";
+      }, 800); // CSSのtransitionと同じ秒数
     }
   </script>
 </body>

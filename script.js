@@ -154,7 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.floating-menu-button');
   if (menuBtn) {
     menuBtn.addEventListener('click', () => {
-      alert("ここにメニュー表示処理を追加できます！");
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "menu.html";
+      }, 800); // ← 遷移時間はCSSと合わせる
     });
   }
 });
