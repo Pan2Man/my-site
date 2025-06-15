@@ -59,10 +59,27 @@
       color: white;
       text-decoration: none;
       transition: color 0.3s ease;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
     }
 
     .menu-item:hover {
       color: #ffe600;
+    }
+
+    .menu-item.menu-fade-in {
+      /* 個別に animation-delay を JS で付与する */
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .back-button {
@@ -76,21 +93,32 @@
   </style>
 </head>
 <body>
-    <div class="menu-wrapper">
-    <div class="magic-circle-bg"></div> <!-- 🔮 背景に魔法陣を配置 -->
+  <div class="menu-wrapper">
+    <div class="magic-circle-bg"></div> <!-- 🔮 魔法陣背景 -->
 
     <nav class="menu-list">
-        <a class="menu-item" href="#">HOME</a>
-        <a class="menu-item" href="#">TOPICS</a>
-        <a class="menu-item" href="#">ON AIR</a>
-        <a class="menu-item" href="#">INTRODUCTION</a>
-        <a class="menu-item" href="#">CHARACTER</a>
-        <a class="menu-item" href="#">MOVIE</a>
-        <a class="menu-item" href="#">MUSIC</a>
-        <a class="menu-item" href="#">STAFF&CAST</a>
-        <a class="menu-item" href="#">GOODS</a>
+      <a class="menu-item menu-fade-in" href="index.html">HOME</a>
+      <a class="menu-item menu-fade-in" href="#">TOPICS</a>
+      <a class="menu-item menu-fade-in" href="#">ON AIR</a>
+      <a class="menu-item menu-fade-in" href="#">INTRODUCTION</a>
+      <a class="menu-item menu-fade-in" href="#">CHARACTER</a>
+      <a class="menu-item menu-fade-in" href="#">MOVIE</a>
+      <a class="menu-item menu-fade-in" href="#">MUSIC</a>
+      <a class="menu-item menu-fade-in" href="#">STAFF&CAST</a>
+      <a class="menu-item menu-fade-in" href="#">GOODS</a>
     </nav>
+
     <a class="back-button" href="index.html">← 戻る</a>
-    </div>
+  </div>
+
+  <!-- ✨ フェードイン順番制御 -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.menu-fade-in');
+      items.forEach((el, i) => {
+        el.style.animationDelay = `${i * 0.1}s`;
+      });
+    });
+  </script>
 </body>
 </html>
